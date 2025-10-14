@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="641031367970-hm9eag8mut8vmem2pc047rlds0ocfq2r.apps.googleusercontent.com">
+
     <title>AI SiteFactory - Venda de Sites Profissionais</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <style>
         :root {
             --primary-color: #5865F2;
@@ -913,9 +916,17 @@
                 <i class="fas fa-shopping-cart"></i>
                 <span class="cart-count">0</span>
             </div>
-            <div class="user-avatar" id="userAvatar">
-                <i class="fas fa-user"></i>
-            </div>
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>   <i class="fas fa-user"></i>
+            <a href="#" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+        </div>
         </div>
     </nav>
 
@@ -1713,8 +1724,15 @@
                 updateUserUI();
                 showNotification('Você saiu da sua conta.');
             }
-
-            // Event listeners for filters in category modal
+             //google//
+            function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+            }
+               // Event listeners for filters in category modal
             categorySearch.addEventListener('input', filterCategoryProducts);
             categorySort.addEventListener('change', filterCategoryProducts);
             priceMin.addEventListener('input', filterCategoryProducts);
