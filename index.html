@@ -752,39 +752,85 @@
             </div>
         </section>
     </div>
-
-    <!-- Category Modal -->
-    <div class="modal" id="categoryModal">
+    
+    <!-- Beauty Modal 14/10 -->
+    <div class="modal" id="beautyModal">
         <div class="modal-content">
-            <div class="category-modal-header">
-                <h3 class="modal-title" id="categoryModalTitle">Explorar Templates</h3>
-                <button class="close-modal">&times;</button>
+            <div class="modal-header">
+                <h3 class="modal-title">Templates de Beleza e Estética</h3>
+                <button class="close-modal" onclick="closeModal('beautyModal')">&times;</button>
             </div>
-            
-            <div class="category-filters">
-                <div class="filter-group">
-                    <label class="filter-label">Buscar</label>
-                    <input type="text" class="filter-input" id="categorySearch" placeholder="Buscar templates...">
+            <div class="products-grid">
+                
+                <!-- Salão Elegance Pro 14/10-->
+                <div class="product-card">
+                    <div class="product-badge">Mais Vendido</div>
+                    <div class="product-image">
+                        <i class="fas fa-scissors"></i>
+                    </div>
+                    <h3 class="product-title">Salão Elegance Pro</h3>
+                    <p class="product-description">Site premium para salões com sistema de agendamento online, galeria profissional e integração completa com redes sociais.</p>
+                    <div class="product-features">
+                        <span class="feature-tag">Agendamento Online</span>
+                        <span class="feature-tag">Galeria Profissional</span>
+                        <span class="feature-tag">WhatsApp Integrado</span>
+                        <span class="feature-tag">SEO Otimizado</span>
+                    </div>
+                    <div class="product-price">R$ 497</div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-small" onclick="addToCart('Salão Elegance Pro', 497)">Adicionar ao Carrinho</button>
+                        <button class="btn btn-secondary btn-small" onclick="window.open('salaogpro.html', '_blank')"> Demo/teste </button> 
+                    </div>
                 </div>
-                <div class="filter-group">
-                    <label class="filter-label">Ordenar por</label>
-                    <select class="filter-select" id="categorySort">
-                        <option value="name">Nome</option>
-                        <option value="price-low">Preço: Menor para Maior</option>
-                        <option value="price-high">Preço: Maior para Menor</option>
-                        <option value="popular">Mais Populares</option>
-                    </select>
+
+                
+<!-- Beauty Studio Deluxe 14/10 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="product-title">Beauty Studio Deluxe</h3>
+                    <p class="product-description">Template sofisticado para estúdios de beleza com design minimalista e foco na experiência do cliente.</p>
+                    <div class="product-features">
+                        <span class="feature-tag">Design Responsivo</span>
+                        <span class="feature-tag">Formulário de Contato</span>
+                        <span class="feature-tag">Depoimentos</span>
+                        <span class="feature-tag">Mobile First</span>
+                    </div>
+                    <div class="product-price">R$ 397</div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-small" onclick="addToCart('Beauty Studio Deluxe', 397)">Adicionar ao Carrinho</button>
+                        <button class="btn btn-secondary btn-small" onclick="showProductDetails('Beauty Studio Deluxe', 'Template sofisticado para estúdios de beleza com design minimalista e foco na experiência do cliente.', 397)">Detalhes</button>
+                    </div>
                 </div>
-                <div class="filter-group">
-                    <label class="filter-label">Preço Mínimo</label>
-                    <input type="number" class="filter-input" id="priceMin" placeholder="R$ 0" min="0">
-                </div>
-                <div class="filter-group">
-                    <label class="filter-label">Preço Máximo</label>
-                    <input type="number" class="filter-input" id="priceMax" placeholder="R$ 1000" min="0">
+                
+                <!-- Barbearia Vintage 14/10-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="product-title">Barbearia Vintage</h3>
+                    <p class="product-description">Site com estilo retrô para barbearias, destacando serviços tradicionais e ambiente acolhedor.</p>
+                    <div class="product-features">
+                        <span class="feature-tag">Estilo Vintage</span>
+                        <span class="feature-tag">Portfólio de Trabalhos</span>
+                        <span class="feature-tag">Localização</span>
+                        <span class="feature-tag">Preços Transparentes</span>
+                    </div>
+                    <div class="product-price">R$ 347</div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-small" onclick="addToCart('Barbearia Vintage', 347)">Adicionar ao Carrinho</button>
+                        <button class="btn btn-secondary btn-small" onclick="showProductDetails('Barbearia Vintage', 'Site com estilo retrô para barbearias, destacando serviços tradicionais e ambiente acolhedor.', 347)">Detalhes</button>
+                    </div>
                 </div>
             </div>
-            
+        </div>
+    </div>
+
+                
+    <!-- Category Modal -->
+    <!--removida 14/10-->
+        <!--mexi até aqui 14/10 22:32-->    
             <div class="products-grid" id="categoryProductsGrid">
                 <!-- Category products will be loaded here -->
             </div>
@@ -828,40 +874,27 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            
+            // Abrir modal
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+        
+        // Fechar modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+        
+        // Mostrar detalhes do produto
+        function showProductDetails(name, description, price) {
+            showNotification(`Detalhes do ${name}: ${description} - Preço: R$ ${price}`);
+        }
+
+            //mexu ate aqui 14/10 22:34
+            
             // Products data - Templates profissionais e bonitos
             const products = [
-                // Beleza e Estética
-                {
-                    id: 1,
-                    name: "Salão Elegance Pro",
-                    description: "Site premium para salões com sistema de agendamento online, galeria profissional e integração completa com redes sociais.",
-                    price: 497,
-                    category: "beauty",
-                    icon: "fa-scissors",
-                    popularity: 98,
-                    features: ["Agendamento Online", "Galeria Profissional", "WhatsApp Integrado", "SEO Otimizado"]
-                },
-                {
-                    id: 2,
-                    name: "Beauty Studio Deluxe",
-                    description: "Template sofisticado para estúdios de beleza com design minimalista e foco na experiência do cliente.",
-                    price: 397,
-                    category: "beauty",
-                    icon: "fa-spa",
-                    popularity: 92,
-                    features: ["Design Responsivo", "Formulário de Contato", "Depoimentos", "Mobile First"]
-                },
-                {
-                    id: 3,
-                    name: "Barbearia Vintage",
-                    description: "Site com estilo retrô para barbearias, destacando serviços tradicionais e ambiente acolhedor.",
-                    price: 347,
-                    category: "beauty",
-                    icon: "fa-cut",
-                    popularity: 95,
-                    features: ["Estilo Vintage", "Portfólio de Trabalhos", "Localização", "Preços Transparentes"]
-                },
-
+                
                 // Restaurantes e Food
                 {
                     id: 4,
