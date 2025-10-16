@@ -364,3 +364,58 @@
 .faq-item.active .faq-question i {
     transform: rotate(180deg);
             }
+/* ===== FORMULÁRIO DE DEPOIMENTOS ===== */
+.add-testimonial-section {
+    background: #0d0d0d;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.add-testimonial-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+#testimonialForm {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#testimonialForm input,
+#testimonialForm textarea {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 1rem;
+}
+
+#testimonialForm textarea {
+    min-height: 100px;
+    resize: none;
+}
+
+#testimonialForm input:focus,
+#testimonialForm textarea:focus {
+    outline: 2px solid var(--primary-color);
+}
+
+#testimonialForm button {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#testimonialForm button:hover {
+    background: var(--secondary-color);
+}
