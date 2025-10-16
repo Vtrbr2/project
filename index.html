@@ -171,17 +171,90 @@
         </div>
 
     </div>
-                </section>
+    </section>
                 
-            
+
+                <section class="add-testimonial-section fade-in" id="enviar-depoimento">
+  <h2>Deixe seu depoimento 💬</h2>
+  <form id="testimonialForm">
+    <input type="text" id="nome" placeholder="Seu nome" required>
+    <textarea id="mensagem" placeholder="Escreva seu depoimento aqui..." required></textarea>
+    <input type="url" id="foto" placeholder="Link da sua foto (opcional)">
+    <button type="submit" class="btn btn-primary">Enviar Depoimento</button>
+  </form>
+                </section>
+                <!-- Firebase -->
+<script type="module">
+  // Importar Firebase SDK
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBax-nft8D2N2mxxu-wMoC7BlcUm4lL8xA",
+    authDomain: "bibliotecaata-2619e.firebaseapp.com",
+    databaseURL: "https://bibliotecaata-2619e-default-rtdb.firebaseio.com",
+    projectId: "bibliotecaata-2619e",
+    storageBucket: "bibliotecaata-2619e.appspot.com",
+    messagingSenderId: "715369470789",
+    appId: "1:715369470789:web:3d3c56c682a52c68a654f0"
+  };
+
+  // Inicializar Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  // Referência do banco
+  const depoimentosRef = ref(db, "depoimentos");
+
+  // Formulário de envio
+  const form = document.getElementById("testimonialForm");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const nome = document.getElementById("nome").value.trim();
+    const mensagem = document.getElementById("mensagem").value.trim();
+    const foto = document.getElementById("foto").value.trim() || "https://cdn-icons-png.flaticon.com/512/1946/1946429.png";
+
+    if (nome && mensagem) {
+      await push(depoimentosRef, { nome, mensagem, foto, data: new Date().toISOString() });
+      form.reset();
+      alert("✅ Depoimento enviado com sucesso! Obrigado por participar!");
+    } else {
+      alert("Por favor, preencha todos os campos obrigatórios!");
+    }
+  });
+
+  // Exibir depoimentos em tempo real
+  const container = document.querySelector(".testimonials-container");
+  onValue(depoimentosRef, (snapshot) => {
+    const dados = snapshot.val();
+    container.innerHTML = "";
+    for (const id in dados) {
+      const dep = dados[id];
+      container.innerHTML += `
+        <div class="testimonial-card">
+          <div class="testimonial-avatar">
+            <img src="${dep.foto}" alt="${dep.nome}">
+          </div>
+          <p class="testimonial-text">“${dep.mensagem}”</p>
+          <h4 class="testimonial-name">${dep.nome}</h4>
+          <span class="testimonial-role">Cliente verificado</span>
+        </div>`;
+    }
+  });
+      </script>
+                
         </div>
     </section>
+    
     
     <section class="section" id="contato">
         <h2>Entre em Contato</h2>
         <p>Tem um projeto em mente? Vamos conversar!</p>
         <a href="https://api.whatsapp.com/send?phone=5516997454758&text=Olá. Tenho uma ideia, vamos combinar!" class="btn btn-primary">Entre aqui</a>
     </section>
+
     
     <footer class="footer">
         © 2025 AI Web Factory — Todos os direitos reservados.
