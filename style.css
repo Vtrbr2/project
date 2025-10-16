@@ -299,9 +299,10 @@
 /* ===== FAQ SECTION ===== */
 .faq-section {
     padding: 80px 20px;
-    background: #0d0d0d;
-    color: #fff;
+    background: var(--bg-color);
+    color: var(--text-color);
     text-align: center;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .faq-section h2 {
@@ -317,12 +318,16 @@
 }
 
 .faq-item {
-    background: #1a1a1a;
+    background: var(--card-bg);
     border-radius: 10px;
     margin-bottom: 15px;
     overflow: hidden;
     transition: all 0.3s ease;
-    border: 1px solid #222;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .faq-item {
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .faq-item:hover {
@@ -333,7 +338,7 @@
     width: 100%;
     background: none;
     border: none;
-    color: #fff;
+    color: var(--text-color);
     font-size: 1.1rem;
     padding: 20px;
     display: flex;
@@ -350,9 +355,14 @@
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    background: #121212;
+    background: var(--bg-color);
     padding: 0 20px;
     transition: all 0.4s ease;
+    color: var(--text-color);
+}
+
+body.dark-mode .faq-answer {
+    background: #1d222b; /* leve destaque no escuro */
     color: #ccc;
 }
 
@@ -363,7 +373,7 @@
 
 .faq-item.active .faq-question i {
     transform: rotate(180deg);
-            }
+    }
 /* ===== FORMULÁRIO DE DEPOIMENTOS ===== */
 .add-testimonial-section {
     background: #0d0d0d;
