@@ -419,3 +419,49 @@
 #testimonialForm button:hover {
     background: var(--secondary-color);
 }
+/* ===== BOTÃO DE TROCA DE TEMA ===== */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* ===== TEMAS ===== */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --nav-bg: #f3f3f3;
+    --card-bg: #f8f8f8;
+}
+
+body.dark-mode {
+    --bg-color: #0d1117;
+    --text-color: #e6edf3;
+    --nav-bg: #161b22;
+    --card-bg: #1d222b;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Ajuste da navbar e cartões */
+.navbar {
+    background-color: var(--nav-bg);
+    transition: background-color 0.3s ease;
+}
+
+.product-card {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    }
