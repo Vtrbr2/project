@@ -164,7 +164,7 @@
             transition: 0.3s;
             text-decoration: none;
             display: inline-block;
-            margin: 0 0.5rem ; /* 👈 adiciona 10px de espaço abaixo */
+            margin: 0 0.5rem 10px 0.5rem; /* 👈 adiciona 10px de espaço abaixo */
         }
 
         .btn-primary {
@@ -182,7 +182,7 @@
             border: 1px solid var(--border-color);
         }
 
-        /* === PRODUCTS === 
+        /*=== nossos serviços === */
         .section {
             padding: 3rem 1.5rem;
             text-align: center;
@@ -225,7 +225,7 @@
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-       } tbm nn tô usando kkkk aff dnv*/
+       } 
 
 /*==≈=== avatar la do topo do site =====*/
         .user-avatar {
