@@ -143,7 +143,7 @@ body {
     margin-top: 2rem;
 }
 
-.category-card {
+..category-card {
     background: rgba(22, 24, 39, 0.8);
     border-radius: var(--radius);
     padding: 2rem 1rem;
@@ -151,8 +151,20 @@ body {
     transition: 0.3s;
     text-align: center;
     cursor: pointer;
+
+    display: flex;
+    flex-direction: column; /* empilha elementos verticalmente */
+    justify-content: space-between; /* botão vai para o final */
+    height: 100%; /* garante que todos os cards tenham mesma altura */
 }
 
+.category-card .btn {
+    margin-top: 1rem; /* espaço entre o texto e o botão */
+    display: block; /* garante que o botão ocupe só o necessário */
+    width: fit-content; /* o botão não ocupa 100% do card */
+    margin-left: auto; /* centraliza horizontalmente */
+    margin-right: auto; /* centraliza horizontalmente */
+}
 .category-card:hover {
     border-color: var(--primary-color);
     transform: translateY(-5px);
