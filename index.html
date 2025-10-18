@@ -502,7 +502,7 @@ body.dark-mode .faq-answer {
 }
 
 /* ===== TEMAS ===== */
-:root {
+/*:root {
     --bg-color: #ffffff;
     --text-color: #111111;
     --nav-bg: #f3f3f3;
@@ -519,8 +519,38 @@ body.dark-mode {
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
+}*/
+
+        /* ===== TEMAS ===== */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --nav-bg: #f3f3f3;
+  --card-bg: #f8f8f8;
 }
 
+body.dark-mode {
+  --bg-color: #0d0f1a;
+  --text-color: #ffffff;
+  --nav-bg: #161b22;
+  --card-bg: #1d222b;
+}
+
+/* aplica as cores de tema */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+.navbar {
+  background-color: var(--nav-bg);
+}
+
+.product-card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+        }
 /* Ajuste da navbar e cartões */
 .navbar {
     background-color: var(--nav-bg);
