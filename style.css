@@ -164,7 +164,7 @@
             transition: 0.3s;
             text-decoration: none;
             display: inline-block;
-            margin: 0 0.5rem 10px 0.5rem; /* 👈 adiciona 10px de espaço abaixo */
+            margin: 0 0.5rem ; /* 👈 adiciona 10px de espaço abaixo */
         }
 
         .btn-primary {
